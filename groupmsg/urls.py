@@ -7,6 +7,12 @@ urlpatterns = [
 
 ]
 
+# app base
 urlpatterns += [
     path('', include('base.urls')),
+]
+
+# api base
+urlpatterns += [
+    path('api/', include('base.api.urls')),
 ]

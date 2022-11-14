@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-        #MyApps
+        # MyApps
     'base.apps.BaseConfig',
+        # API DRF
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -107,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'pt-br'
+LANGUAGE_CODE = 'EN'
 
 TIME_ZONE = 'America/Sao_Paulo'
 

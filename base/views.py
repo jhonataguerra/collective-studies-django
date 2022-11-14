@@ -61,7 +61,7 @@ def home(request):
         Q(name__icontains=q) |
         Q(description__icontains=q) 
     )
-    topics = Topic.objects.all()
+    topics = Topic.objects.all()[0:5]
     room_count = rooms.count()
     room_messages = Message.objects.filter(Q(room__topic__name__icontains=q))
 
@@ -164,6 +164,7 @@ def deleteMessage(request, pk):
         return redirect('home')
     return render(request, 'base/delete.html', {'obj':message})
 
+
 @login_required(login_url='login')
 def updateUser(request):
     user = request.user
@@ -178,3 +179,12 @@ def updateUser(request):
     return render(request, 'base/update_user.html', {'form':form})
 
 
+def topicsPage(request):
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
+    topics = Topic.objects.filter(name__icontains=q)
+    return render(request, 'base/topics.html', {'topics':topics})
+
+
+def activityPage(request):
+    room_messages = Message.objects.all()
+    return render(request, 'base/activity.html', {'room_messages':room_messages})

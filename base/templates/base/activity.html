@@ -1,5 +1,4 @@
 {% extends 'main.html' %}
-
 {% block content %}
     <main class="layout">
       <div class="container">
@@ -27,7 +26,7 @@
                     <img src="{{message.user.avatar.url}}" />
                   </div>
                   <p>
-                    @{{message.user}}
+                    @{{message.user.username}}
                     <span>{{message.created|timesince}} ago</span>
                   </p>
                 </a>
@@ -54,7 +53,14 @@
             </div>
             {% endfor %}
           </div>
+          
         </div>
+        
       </div>
+      <br>
+      <br>
+      <br>
+      <br>      
+      <br>
     </main>
 {% endblock content %}
